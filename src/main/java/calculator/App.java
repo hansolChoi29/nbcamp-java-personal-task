@@ -11,24 +11,27 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         //무한 저장
-        Scanner scanner =new Scanner(System.in);
-        List<Double> results =new ArrayList<>();
+        List<Integer> results =new ArrayList<>();
 
         while (true) {
             System.out.println("첫 번째 숫자를 입력해 주세요.");
-            int numOne = scanner.nextInt();
+            int numOne = sc.nextInt();
+            sc.nextLine();
+
             System.out.println("두 번째 숫자를 입력해 주세요.");
-            int numTow = scanner.nextInt();
+            int numTow = sc.nextInt();
+            sc.nextLine();
 
             if (numOne < 0 || numTow < 0) {
                 System.out.println("양의 정수(0 포함)만 입력 가능합니다.");
+                System.out.println();
                 continue;
             }
 
             //Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
             System.out.println("사칙 연산 기호를 입력하세요.");
             char giho = sc.nextLine().charAt(0);
-            double result = 0;
+            int result = 0;
             boolean error = false;
 
             switch (giho) {
@@ -46,7 +49,7 @@ public class App {
                         System.out.println("나눗셈 연산에서 부모에 0이 입력될 수 없습니다.");
                         error = true;
                     } else {
-                        result = (double) numOne / numTow;
+                        result = numOne / numTow;
                     }
                     break;
                 default:
@@ -101,6 +104,5 @@ public class App {
             //반복문을 사용하여 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정합니다.
         }
         sc.close();
-        scanner.close();
     }
 }
