@@ -56,6 +56,11 @@ public class App {
             System.out.println("두 번째 숫자를 입력해 주세요.");
             int numTow = scanner.nextInt();
 
+            if (numOne < 0 || numTow < 0) {
+                System.out.println("양의 정수(0 포함)만 입력 가능합니다.");
+                break;
+            }
+
             //Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
             System.out.println("사칙 연산 기호를 입력하세요.");
             char giho = sc.nextLine().charAt(0);
@@ -70,7 +75,7 @@ public class App {
                     result = numOne - numTow;
                     break;
                 case '*':
-                    result = numOne - numTow;
+                    result = numOne * numTow;
                     break;
                 case '/':
                     if (numTow == 0) {
