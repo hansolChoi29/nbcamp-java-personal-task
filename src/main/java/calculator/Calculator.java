@@ -15,6 +15,9 @@ public class Calculator {
         this.results= new ArrayList<>();
     }
 
+    //원의 넓이 결과 저장하는 필드
+    //2-7 static사용한 이유🔥: 모든 인스턴스가 공유해야 함(인라인)
+    private static final List<Double> circle=new ArrayList<>();
 
     public double calculate(double numOne, double numTow, char giho) {
         if (numOne < 0 || numTow < 0) {
@@ -44,6 +47,19 @@ public class Calculator {
         results.add(result);
         return result;
     }
+
+    //원의 넓이 구하는 메서드
+    public static void calculatorCirecle(double radius){
+        if(radius<0){
+            throw new ArithmeticException("반지름은 음수일 수 없습니다.");
+        }
+        double area=Math.PI*Math.pow(radius,2);
+        circle.add(area);
+    }
+    public static List<Double> getCircle(){
+        return new ArrayList<>();
+    }
+
 
     //게터: 내부 리스트 읽기 전용
     public List<Double> getResults() {
@@ -75,6 +91,17 @@ public class Calculator {
                     System.out.println(r);
                 }
             }
+    }
+    //원의 넓이 조회
+    public static void listCircle(){
+        if(circle.isEmpty()){
+            System.out.println("저장된 원의 넓이가 없음");
+        }else{
+            System.out.println("저장된 원의 넓이: ");
+            for(double area:circle){
+                System.out.println(area);
+            }
+        }
     }
 }
 
