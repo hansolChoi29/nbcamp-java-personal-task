@@ -6,7 +6,15 @@ import java.util.List;
 //결과 값을 반환하는 메서드와
 //연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스
 public class Calculator {
-    private final List<Double> results = new ArrayList<>();
+    // (1) 인라인 초기화
+    // private final List<Double> results = new ArrayList<>(); 생성자가 있으니 아래와 같이 수정함
+    // (2) 생성자 초기화 — 위 인라인 초기화와 같은 기능
+    private  final  List<Double> results;
+    //생성자에서 results로 초기화
+    public Calculator(){
+        this.results= new ArrayList<>();
+    }
+
 
     public double calculate(double numOne, double numTow, char giho) {
         if (numOne < 0 || numTow < 0) {
@@ -48,7 +56,7 @@ public class Calculator {
         results.addAll(newResults);
     }
 
-    //삭제
+    //삭제 : return 값이 있어서 App에 출력책임 가져감
     public Double removeCal() {
         if (results.isEmpty()) {
            return null;
@@ -57,7 +65,7 @@ public class Calculator {
         }
     }
 
-    //조회
+    //조회 : 반환값이 없으므로 출력책임을 가짐.
     public  void listCal(){
             if(results.isEmpty()){
                 System.out.println("저장된 결과가 없음");
