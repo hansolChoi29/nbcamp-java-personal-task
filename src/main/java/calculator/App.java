@@ -46,14 +46,12 @@ public class App {
             }
 
             //삭제
-            if(msg.equals("remove")){
-                List<Double> stored=calc.getResults();
-                if(stored.isEmpty()){
+            if (msg.equals("remove")) {
+                Double removed = calc.removeTodo();
+                if (removed == null) {
                     System.out.println("저장된 결과가 없음.");
-                }else{
-                    double removed =stored.remove(0);
-                    calc.setResults(stored);
-                    System.out.println("삭제된 결과 : "+removed);
+                } else {
+                    System.out.println("삭제된 결과: " + removed);
                 }
                 System.out.println();
                 continue;
