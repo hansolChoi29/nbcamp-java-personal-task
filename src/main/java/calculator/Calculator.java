@@ -6,7 +6,7 @@ import java.util.List;
 //결과 값을 반환하는 메서드와
 //연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스
 public class Calculator {
-   private final List<Integer> results=new ArrayList<>();
+    private final List<Integer> results=new ArrayList<>();
 
     public int calculate(int numOne, int numTow ,char giho) {
         if (numOne < 0 || numTow < 0) {
@@ -35,5 +35,15 @@ public class Calculator {
         }
         results.add(result);
         return result;
+    }
+
+    //게터: 내부 리스트 읽기 전용
+    public List<Integer> getResults(){
+        return new ArrayList<>(results);
+    }
+    //세터: 외부에서 전달된 리스트
+    public void setResults(List<Integer> newResults){
+        results.clear();
+        results.addAll(newResults);
     }
 }

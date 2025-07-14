@@ -11,7 +11,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Calculator calc=new Calculator();
         //무한 저장
-        List<Integer> results =new ArrayList<>();
+//        List<Integer> results =new ArrayList<>();
 
         while (true) {
             System.out.println("첫 번째 숫자를 입력해 주세요.");
@@ -47,10 +47,12 @@ public class App {
 
             //삭제
             if(msg.equals("remove")){
-                if(results.isEmpty()){
+                List<Integer> stored=calc.getResults();
+                if(stored.isEmpty()){
                     System.out.println("저장된 결과가 없음.");
                 }else{
-                    double removed =results.remove(0);
+                    int removed =stored.remove(0);
+                    calc.setResults(stored);
                     System.out.println("삭제된 결과 : "+removed);
                 }
                 System.out.println();
@@ -59,11 +61,12 @@ public class App {
 
             //조회
             if(msg.equals("inquiry")){
-                if(results.isEmpty()){
+                List<Integer> stored=calc.getResults();
+                if(stored.isEmpty()){
                     System.out.println("저장된 결과가 없음");
                 }else {
                     System.out.println("저장된 연산 결과:");
-                    for(double r:results){
+                    for(double r:stored){
                         System.out.println(r);
                     }
                 }
