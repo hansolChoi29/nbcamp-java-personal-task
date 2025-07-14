@@ -47,7 +47,7 @@ public class App {
 
             //삭제
             if (msg.equals("remove")) {
-                Double removed = calc.removeTodo();
+                Double removed = calc.removeCal();
                 if (removed == null) {
                     System.out.println("저장된 결과가 없음.");
                 } else {
@@ -59,20 +59,10 @@ public class App {
 
             //조회
             if(msg.equals("inquiry")){
-                List<Double> stored=calc.getResults();
-                if(stored.isEmpty()){
-                    System.out.println("저장된 결과가 없음");
-                }else {
-                    System.out.println("저장된 연산 결과:");
-                    for(double r:stored){
-                        System.out.println(r);
-                    }
-                }
+               calc.listCal();
                 System.out.println();
                 continue;
             }
-
-
             System.out.println();
         }
         sc.close();

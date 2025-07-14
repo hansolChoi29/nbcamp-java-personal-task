@@ -49,12 +49,24 @@ public class Calculator {
     }
 
     //삭제
-    public Double removeTodo() {
+    public Double removeCal() {
         if (results.isEmpty()) {
-            return null;  // 결과가 없을 때 명확하게 null 반환
+           return null;
         } else {
-            return results.remove(0);  // 첫 번째 결과 삭제 후 반환
+           return results.remove(0);
         }
+    }
+
+    //조회
+    public  void listCal(){
+            if(results.isEmpty()){
+                System.out.println("저장된 결과가 없음");
+            }else {
+                System.out.println("저장된 연산 결과:");
+                for(double r:results){
+                    System.out.println(r);
+                }
+            }
     }
 }
 
