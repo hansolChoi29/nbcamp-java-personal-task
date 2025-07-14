@@ -28,7 +28,7 @@ public class App {
             boolean error = false;
 
             try {
-                int result= calc.calculate(numOne,numTow,giho);
+                double result= calc.calculate(numOne,numTow,giho);
                 System.out.println("결과"+result);
             }catch (ArithmeticException e){
                 System.out.println("오류: "+e.getMessage());
@@ -47,11 +47,11 @@ public class App {
 
             //삭제
             if(msg.equals("remove")){
-                List<Integer> stored=calc.getResults();
+                List<Double> stored=calc.getResults();
                 if(stored.isEmpty()){
                     System.out.println("저장된 결과가 없음.");
                 }else{
-                    int removed =stored.remove(0);
+                    double removed =stored.remove(0);
                     calc.setResults(stored);
                     System.out.println("삭제된 결과 : "+removed);
                 }
@@ -61,7 +61,7 @@ public class App {
 
             //조회
             if(msg.equals("inquiry")){
-                List<Integer> stored=calc.getResults();
+                List<Double> stored=calc.getResults();
                 if(stored.isEmpty()){
                     System.out.println("저장된 결과가 없음");
                 }else {
