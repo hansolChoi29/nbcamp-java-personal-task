@@ -7,98 +7,102 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Operator opAdd=new AddOperator();
-        Operator opDivi=new DivideOperator();
-        Operator opMul=new MultiplyOperator();
-        Operator opSub=new SubtractOperator();
-        Operator opMod=new ModOperator();
-        Operator[] operators= {opAdd, opSub, opMul, opDivi};
-        CircleCalculator cc=new CircleCalculator();
-        ArithmeticCalculator ac=new ArithmeticCalculator(operators);
-       //Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
+//Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
         Scanner sc = new Scanner(System.in);
-        Calculator calc=new Calculator();
+
+        //무한 저장
+        List<Integer> results =new ArrayList<>();
 
         while (true) {
-            // 프로그램 종료 입력은 메뉴 선택 이후에 처리함
-            // 상단에 있으면 숫자 입력 흐름과 충돌나기 때문에
-            // 메뉴 선택 후 EXIT처리 아래로 옮김
+            System.out.println("첫 번째 숫자를 입력해 주세요.");
+            int numOne = sc.nextInt();
+            sc.nextLine();
 
-            //분기점 만들기 및 다 갈아엎기
-            System.out.println("1.사칙 연산하기  2.원의 넓이 구하기 3.종료 (번호를 입력해 주세요.)");
-            System.out.print("선택: ");
-            int choice=sc.nextInt();
+            System.out.println("두 번째 숫자를 입력해 주세요.");
+            int numTow = sc.nextInt();
+            sc.nextLine();
 
-            // switch(choice) case 1, 2, 3에 따른 분기점
-            switch (choice){
-                case 1:
-                    System.out.println("사칙연산 하기 시작!");
-                    System.out.println("첫 번째 숫자를 입력해 주세요.");
-                    int numOne = sc.nextInt();
-                    sc.nextLine();
-
-                    System.out.println("두 번째 숫자를 입력해 주세요.");
-                    int numTow = sc.nextInt();
-                    sc.nextLine();
-
-                    //Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
-                    System.out.println("사칙 연산 기호를 입력하세요.");
-                    char giho=sc.nextLine().charAt(0);
-
-                    try {
-                        double result= ac.calculate(numOne,numTow,giho);
-                        System.out.println("결과"+result);
-                    }catch (ArithmeticException e){
-                        System.out.println("오류: "+e.getMessage());
-                    }
-                    break;
-
-                case 2:
-                    System.out.println("원의 넓이를 계산합니다.");
-                    System.out.println("원의 반지름을 입력해 주세요!");
-                    double radius=sc.nextDouble();
-                    sc.nextLine();
-
-                    try{
-                       double area=cc.ArithmeticCalculator(radius);
-                        System.out.println("원의 넓이를 계산했습니다.:"+area);
-                    }catch (ArithmeticException e){
-                        System.out.println("오류: "+e.getMessage());
-                    }
-                    // 모든 결과 조회는 통합된 listCal()하나로 처리하므로
-                    // 개별 컬렉션 전용 호출 불필요함.
-//                    System.out.print("저징된 원의 넓이 결과:");
-//                    Calculator.listCircle();
-                    break;
-
-                case 3:
-                    System.out.println("프로그램을 종료합니다!");
-                    return;
-
-                default:
-                    System.out.println("잘못된 입력입니다.");
-                    return;
-            }
-            System.out.println("원하는 텍스트를 입력해 주세요.");
-            System.out.println("remove/inquiry/exit/계속하실 거면 enter");
-            String msg=sc.nextLine();
-            //삭제
-            if (msg.equals("remove")) {
-                Double removed = calc.removeCal();
-                if (removed == null) {
-                    System.out.println("저장된 결과가 없음.");
-                } else {
-                    System.out.println("삭제된 결과: " + removed);
-                }
-            }
-            else if(msg.equals("inquiry")){
-                    ac.listCal();
-                }else if(msg.equals("exit")){
-                    System.out.println("프로그램을 종료합니다.");
-                    return;
-                }
-
+            if (numOne < 0 || numTow < 0) {
+                System.out.println("양의 정수(0 포함)만 입력 가능합니다.");
                 System.out.println();
+                continue;
+            }
+
+            //Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
+            System.out.println("사칙 연산 기호를 입력하세요.");
+            char giho = sc.nextLine().charAt(0);
+            int result = 0;
+            boolean error = false;
+
+            switch (giho) {
+                case '+':
+                    result = numOne + numTow;
+                    break;
+                case '-':
+                    result = numOne - numTow;
+                    break;
+                case '*':
+                    result = numOne * numTow;
+                    break;
+                case '/':
+                    if (numTow == 0) {
+                        System.out.println("나눗셈 연산에서 부모에 0이 입력될 수 없습니다.");
+                        error = true;
+                    } else {
+                        result = numOne / numTow;
+                    }
+                    break;
+                default:
+                    System.out.println("지원하지 않는 연산 기호입니다.");
+                    error = true;
+            }
+            //입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력합니다.
+            if (!error) {
+                System.out.println("결과" + result);
+                results.add(result);
+            }
+
+
+            // error: nextInt을 호출했는데 exit문자열이 들어오면서 파싱되어 실패.
+            System.out.println("더 계산을 하시겠습니까? (exit 입력 시 종료됩니다.)");
+            String msg = sc.nextLine();
+
+            //종료
+            if (msg.equals("exit")) {
+                System.out.println("프로그램을 종료합니다. 감사합니다!");
+                break;
+            }
+
+            //삭제
+            if(msg.equals("remove")){
+                if(results.isEmpty()){
+                    System.out.println("저장된 결과가 없음.");
+                }else{
+                    double removed =results.remove(0);
+                    System.out.println("삭제된 결과 : "+removed);
+                }
+                System.out.println();
+                continue;
+            }
+
+            //조회
+            if(msg.equals("inquiry")){
+                if(results.isEmpty()){
+                    System.out.println("저장된 결과가 없음");
+                }else {
+                    System.out.println("저장된 연산 결과:");
+                    for(double r:results){
+                        System.out.println(r);
+                    }
+                }
+                System.out.println();
+                continue;
+            }
+
+
+            System.out.println();
+            //반복문을 사용하여 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정합니다.
         }
+        sc.close();
     }
 }
