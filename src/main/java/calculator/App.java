@@ -7,13 +7,14 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        AddOperator opAdd=new AddOperator();
-        DivideOperator opDivi=new DivideOperator();
-        MultiplyOperator opMul=new MultiplyOperator();
-        SubtractOperator opSub=new SubtractOperator();
-
+        Operator opAdd=new AddOperator();
+        Operator opDivi=new DivideOperator();
+        Operator opMul=new MultiplyOperator();
+        Operator opSub=new SubtractOperator();
+        Operator opMod=new ModOperator();
+        Operator[] operators= {opAdd, opSub, opMul, opDivi};
         CircleCalculator cc=new CircleCalculator();
-        ArithmeticCalculator ac=new ArithmeticCalculator(opAdd, opSub, opMul, opDivi);
+        ArithmeticCalculator ac=new ArithmeticCalculator(operators);
        //Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
         Scanner sc = new Scanner(System.in);
         Calculator calc=new Calculator();
