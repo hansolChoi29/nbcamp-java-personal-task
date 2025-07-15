@@ -6,6 +6,7 @@ import java.util.List;
 //결과 값을 반환하는 메서드와
 //연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스
 public class Calculator {
+
     // (1) 인라인 초기화
     // private final List<Double> results = new ArrayList<>(); 생성자가 있으니 아래와 같이 수정함
     // (2) 생성자 초기화 — 위 인라인 초기화와 같은 기능
@@ -15,50 +16,23 @@ public class Calculator {
         this.results= new ArrayList<>();
     }
 
+    //결과 저장 메서드: 연산 결과 result에 추가함.
+    // 이유=> addResult를 통해 어떤 계산이든 공통 로직을 한곳에 모아두면
+    // 중복x, 파일기록이나 저장 등 오직 이 메서드만 수정하면 됨.
+    public void addResult(double result){
+        results.add(result);
+    }
     //원의 넓이 결과 저장하는 필드
     //2-7 static사용한 이유🔥: 모든 인스턴스가 공유해야 함(인라인)
-    private static final List<Double> circle=new ArrayList<>();
-
-    public double calculate(double numOne, double numTow, char giho) {
-        if (numOne < 0 || numTow < 0) {
-            throw new ArithmeticException("양의정수만 허용합니다.");
+//    private static final List<Double> circle=new ArrayList<>();
+    public Double removeCal(){
+        if(results.isEmpty()){
+            return null;
+        }else{
+            return results.remove(0);
         }
-
-        Double result;
-        switch (giho) {
-            case '+':
-                result = numOne + numTow;
-                break;
-            case '-':
-                result = numOne - numTow;
-                break;
-            case '*':
-                result = numOne * numTow;
-                break;
-            case '/':
-                if (numTow == 0) {
-                    throw new ArithmeticException("나눗셈 연산에서 부모에 0이 입력될 수 없습니다.");
-                }
-                result = (double) numOne / numTow;
-                break;
-            default:
-                throw new ArithmeticException("지원하지 않는 연산 기호입니다.");
-        }
-        results.add(result);
-        return result;
     }
 
-    //원의 넓이 구하는 메서드
-    public static void calculatorCirecle(double radius){
-        if(radius<0){
-            throw new ArithmeticException("반지름은 음수일 수 없습니다.");
-        }
-        double area=Math.PI*Math.pow(radius,2);
-        circle.add(area);
-    }
-    public static List<Double> getCircle(){
-        return new ArrayList<>();
-    }
 
 
     //게터: 내부 리스트 읽기 전용
@@ -72,14 +46,7 @@ public class Calculator {
         results.addAll(newResults);
     }
 
-    //삭제 : return 값이 있어서 App에 출력책임 가져감
-    public Double removeCal() {
-        if (results.isEmpty()) {
-           return null;
-        } else {
-           return results.remove(0);
-        }
-    }
+
 
     //조회 : 반환값이 없으므로 출력책임을 가짐.
     public  void listCal(){
@@ -92,16 +59,6 @@ public class Calculator {
                 }
             }
     }
-    //원의 넓이 조회
-    public static void listCircle(){
-        if(circle.isEmpty()){
-            System.out.println("저장된 원의 넓이가 없음");
-        }else{
-            System.out.println("저장된 원의 넓이: ");
-            for(double area:circle){
-                System.out.println(area);
-            }
-        }
-    }
+
 }
 
