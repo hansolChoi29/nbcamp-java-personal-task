@@ -1,6 +1,19 @@
 package calculator;
 
 public class ArithmeticCalculator extends Calculator{
+    private final AddOperator opAdd;
+    private final SubtractOperator opSub;
+    private final MultiplyOperator opMul;
+    private final DivideOperator opDiv;
+
+    public ArithmeticCalculator(AddOperator opAdd, SubtractOperator opSub, MultiplyOperator opMul, DivideOperator opDiv){
+        this.opAdd=opAdd;
+        this.opDiv=opDiv;
+        this.opSub=opSub;
+        this.opMul=opMul;
+
+    }
+
 //// 사칙연산 수행 후 부모의 addResult로 저장
 public double calculate(double numOne, double numTow, char giho) {
     if (numOne < 0 || numTow < 0) {

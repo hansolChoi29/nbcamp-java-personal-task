@@ -7,8 +7,13 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
+        AddOperator opAdd=new AddOperator();
+        DivideOperator opDivi=new DivideOperator();
+        MultiplyOperator opMul=new MultiplyOperator();
+        SubtractOperator opSub=new SubtractOperator();
+
         CircleCalculator cc=new CircleCalculator();
-        ArithmeticCalculator ac=new ArithmeticCalculator();
+        ArithmeticCalculator ac=new ArithmeticCalculator(opAdd, opSub, opMul, opDivi);
        //Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
         Scanner sc = new Scanner(System.in);
         Calculator calc=new Calculator();
@@ -55,7 +60,7 @@ public class App {
 
                     try{
                        double area=cc.ArithmeticCalculator(radius);
-                        System.out.println("원의 넓이를 계산했습니다.:"+radius);
+                        System.out.println("원의 넓이를 계산했습니다.:"+area);
                     }catch (ArithmeticException e){
                         System.out.println("오류: "+e.getMessage());
                     }
@@ -91,10 +96,7 @@ public class App {
                     System.out.println("프로그램을 종료합니다.");
                     return;
                 }
-            else {
-                System.out.println("잘못된 입력입니다.");
-                break;
-            }
+
                 System.out.println();
         }
     }
