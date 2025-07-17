@@ -121,27 +121,27 @@ if (radius < 0) {
 ```
 onboarding-personal-calculator/
 │
-├── .gitignore
-├── README.md
-├── build.gradle
-├── gradle/
-├── gradlew
-├── gradlew.bat
-├── settings.gradle
+├── .gitignore   # Git에서 추적하지 않을 파일 지정
+├── README.md   # 프로젝트 소개 및 설명 문서
+├── build.gradle   # Gradle 빌드 설정 파일
+├── gradle/   # Gradle 관련 내부 설정 폴더
+├── gradlew   # Gradle Wrapper (유닉스용)
+├── gradlew.bat   # Gradle Wrapper (윈도우용)
+├── settings.gradle   # 프로젝트 구성 설정
 │
 └── src/
-    └── main/
-        └── java/
-            └── calculator/
-                ├── App.java
-                ├── Calculator.java
-                ├── ArithmeticCalculator.java
-                ├── CircleCalculator.java
-                ├── Operator.java
-                ├── OperatorType.java
-                ├── AddOperator.java
-                ├── SubtractOperator.java
-                ├── MultiplyOperator.java
-                ├── DivideOperator.java
-                └── ModOperator.java
+└── main/
+└── java/
+└── calculator/
+├── App.java  # 메인 실행 파일 (콘솔 메뉴 포함)
+├── Calculator.java   # 공통 결과 저장 및 관리 기능 클래스
+├── ArithmeticCalculator.java   # 제네릭 기반 사칙연산 계산기
+├── CircleCalculator.java   # 원의 넓이 계산 클래스
+├── Operator.java    # 연산자 인터페이스 (계산의 틀 제공)
+├── OperatorType.java   # 연산자 타입 정의 enum (+, -, *, /, %)
+├── AddOperator.java   # 덧셈 기능 클래스
+├── SubtractOperator.java   # 뺄셈 기능 클래스
+├── MultiplyOperator.java   # 곱셈 기능 클래스
+├── DivideOperator.java   # 나눗셈 기능 클래스 (0 예외처리 포함)
+└── ModOperator.java   # 나머지 연산 기능 클래스
 ```
