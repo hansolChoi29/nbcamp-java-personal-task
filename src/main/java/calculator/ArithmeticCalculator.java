@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.Collection;
 import java.util.List;
 
 //public class ArithmeticCalculator extends Calculator {
@@ -25,6 +26,24 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
     public ArithmeticCalculator(Operator[] ops){
         this.ops=ops;
     }
+
+    //입력값 보다 큰 결과만 출력하는 스트림 기반 메서드??
+    public void printResultsGreaterThan(double threshold){
+        List<Double> filtered=getResults().stream()
+                .filter(r->r>threshold)
+                .toList();
+        if(filtered.isEmpty()){
+            System.out.println("해당 조건을 만족하는 결과가 없음");
+        }else{
+            System.out.println("입력 값보다 큰 저장된 결과: ");
+            filtered.forEach(System.out::println);
+        }
+    }
+    //결과 리스트 스트림
+    //입력 값보다 큰 값만 필터
+    // 결과를 새로운 리스트로 수집
+
+
     /// / 사칙연산 수행 후 부모의 addResult로 저장
 //    public double calculate(double numOne, double numTow, char giho) {
     public double calculate(T numOne, T numTow, char giho){

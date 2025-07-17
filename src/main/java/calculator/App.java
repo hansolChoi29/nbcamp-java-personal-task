@@ -81,7 +81,7 @@ public class App {
                     return;
             }
             System.out.println("원하는 텍스트를 입력해 주세요.");
-            System.out.println("remove/inquiry/exit/계속하실 거면 enter");
+            System.out.println("remove/inquiry/inquiryGreater/exit/계속하실 거면 enter");
             String msg=sc.nextLine();
             //삭제
             if (msg.equals("remove")) {
@@ -94,10 +94,15 @@ public class App {
             }
             else if(msg.equals("inquiry")){
                     ac.listCal();
+                }else if(msg.equals("inquiryGreater")){
+                    System.out.println("기준값을 입력해 주세요: ");
+                    double threshold=sc.nextDouble();
+//                    sc.nextLine();=> 이거 있어야 하는 이유를 모르겠음
+                    ac.printResultsGreaterThan(threshold);
                 }else if(msg.equals("exit")){
-                    System.out.println("프로그램을 종료합니다.");
-                    return;
-                }
+                System.out.println("프로그램을 종료합니다.");
+                return;
+            }
 
                 System.out.println();
         }
