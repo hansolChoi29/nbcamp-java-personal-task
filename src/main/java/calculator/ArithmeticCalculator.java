@@ -3,6 +3,7 @@ package calculator;
 import java.util.List;
 
 public class ArithmeticCalculator extends Calculator {
+//public class ArithmeticCalculator<T extends Number> extends Calculator {
 //    private final AddOperator opAdd;
 //    private final SubtractOperator opSub;
 //    private final MultiplyOperator opMul;
@@ -26,12 +27,19 @@ public class ArithmeticCalculator extends Calculator {
     }
     /// / 사칙연산 수행 후 부모의 addResult로 저장
     public double calculate(double numOne, double numTow, char giho) {
+//    public double calculate(T numOne, T numTow, char giho){
+//        double a=numOne.doubleValue();
+//        double b=numTow.doubleValue();
         if (numOne < 0 || numTow < 0) {
+
+//        if(a<0||b<0){
             throw new ArithmeticException("양의정수만 허용합니다.");
         }
+        OperatorType type=OperatorType.fromChar(giho);
         for (Operator op : ops) {
-            if (op.getSymbol() == giho) {
+            if (op.getSymbol() == type.getGiho()) {
                 double result = op.operator(numOne, numTow);
+//                double result=op.operator(a,b);
                 addResult(result);
                 return result;
             }
