@@ -121,28 +121,28 @@ if (radius < 0) {
 ```
 onboarding-personal-calculator/
 │
-├── .gitignore                 : Git이 추적하지 않을 파일 목록 설정
-├── README.md                  : 프로젝트 설명 문서
-├── build.gradle               : Gradle 빌드 설정 파일
-├── gradle/                    : Gradle 관련 내부 설정 폴더
-├── gradlew                    : Gradle 실행 파일 (유닉스용)
-├── gradlew.bat                : Gradle 실행 파일 (윈도우용)
-├── settings.gradle            : 프로젝트 모듈 설정
+├── .gitignore                 # Git이 추적하지 않을 파일 목록 설정
+├── README.md                  # 프로젝트 설명 문서
+├── build.gradle               # Gradle 빌드 설정 파일
+├── gradle/                    # Gradle 관련 내부 설정 폴더
+├── gradlew                    # Gradle 실행 파일 (유닉스용)
+├── gradlew.bat                # Gradle 실행 파일 (윈도우용)
+├── settings.gradle            # 프로젝트 모듈 설정
 │
 └── src/
     └── main/
         └── java/
             └── calculator/
-                ├── App.java                : 프로그램 실행 진입점 (메인 메뉴 및 흐름 제어)
-                ├── Calculator.java         : 계산 결과 저장 및 공통 기능 제공 클래스
-                ├── ArithmeticCalculator.java : 제네릭 기반 사칙연산 계산기
-                ├── CircleCalculator.java   : 원의 넓이 계산 기능 클래스
-                ├── Operator.java           : 연산자 인터페이스 (연산 규약 정의)
-                ├── OperatorType.java       : 연산자 기호 enum 정의 (+, -, *, /, % 등)
-                ├── AddOperator.java        : 덧셈 연산 구현 클래스
-                ├── SubtractOperator.java   : 뺄셈 연산 구현 클래스
-                ├── MultiplyOperator.java   : 곱셈 연산 구현 클래스
-                ├── DivideOperator.java     : 나눗셈 연산 구현 클래스 (0 나눗셈 예외처리 포함)
-                └── ModOperator.java        : 나머지(%) 연산 구현 클래스
+                ├── App.java                # 프로그램 실행 진입점 (메인 메뉴 및 흐름 제어)
+                ├── Calculator.java         # 계산 결과 저장 및 공통 기능 제공 클래스
+                ├── ArithmeticCalculator.java # 제네릭 기반 사칙연산 계산기
+                ├── CircleCalculator.java   # 원의 넓이 계산 기능 클래스
+                ├── Operator.java           # 연산자 인터페이스 (연산 규약 정의)
+                ├── OperatorType.java       # 연산자 기호 enum 정의 (+, -, *, /, % 등)
+                ├── AddOperator.java        # 덧셈 연산 구현 클래스
+                ├── SubtractOperator.java   # 뺄셈 연산 구현 클래스
+                ├── MultiplyOperator.java   # 곱셈 연산 구현 클래스
+                ├── DivideOperator.java     # 나눗셈 연산 구현 클래스 (0 나눗셈 예외처리 포함)
+                └── ModOperator.java        # 나머지(%) 연산 구현 클래스
 
 ```
