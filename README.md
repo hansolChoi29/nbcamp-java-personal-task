@@ -10,7 +10,7 @@
 
 - Enum, 제네릭, 람다&스트림
 
-## 🛠 기술 스택
+## 기술 스택
 
 <p align="left">
   <img src="https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Badge"/>
