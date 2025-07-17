@@ -1,4 +1,4 @@
-#  Calculator Personal Project
+#  Personal Project Calculator 
 진화하는 계산기를 만들어보자! </br>
 브랜치 별로 Level1,2,3단계로 구분해놓은 프로젝트입니다.
 
