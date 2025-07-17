@@ -2,7 +2,7 @@
 진화하는 계산기를 만들어보자! </br>
 브랜치 별로 Level1,2,3단계로 구분해놓은 프로젝트입니다.
 
-# 프로젝트 목표
+## 프로젝트 목표
 
 - 제어문과 반복문, 배열과 컬렉션
 
@@ -12,7 +12,7 @@
 
 
 
-# 주요기능
+## 주요기능
 1. 사칙연산 계산기</br>
 
 - +, -, *, /, % 연산을 지원합니다.
@@ -106,14 +106,14 @@ if (radius < 0) {
 
 
 
-# Trouble Shooting👾
+## Trouble Shooting👾
 [Level1Trouble-Shooting](https://winwin0219.tistory.com/entry/Java-Level1Trouble-Shooting)   </br>
 [Level2Trouble-Shooting](https://winwin0219.tistory.com/entry/Java-Level2Trouble-Shooting)   </br>
 [Level3Trouble-Shooting](https://winwin0219.tistory.com/entry/Java-Level3Trouble-Shooting)   
 
 
 
-# 파일구조
+## 파일구조
 ```
 onboarding-personal-calculator/
 │
