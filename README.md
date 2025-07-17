@@ -10,6 +10,16 @@
 
 - Enum, 제네릭, 람다&스트림
 
+## 🛠 기술 스택
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Badge"/>
+  <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white" alt="IntelliJ IDEA Badge"/>
+  
+</p>
+
+
+
 ## 목차
 - [프로젝트 목표](#프로젝트-목표)
 - [주요 기능](#주요기능)
