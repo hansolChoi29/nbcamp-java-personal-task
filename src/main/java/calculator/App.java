@@ -12,12 +12,13 @@ public class App {
         Operator opMul=new MultiplyOperator();
         Operator opSub=new SubtractOperator();
         Operator opMod=new ModOperator();
-        Operator[] operators= {opAdd, opSub, opMul, opDivi};
+        Operator[] operators= {opAdd, opSub, opMul, opDivi,opMod};
         CircleCalculator cc=new CircleCalculator();
         ArithmeticCalculator ac=new ArithmeticCalculator(operators);
        //Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
         Scanner sc = new Scanner(System.in);
-        Calculator calc=new Calculator();
+        Calculator calc=new Calculator();//결과 저장용 공통 객체
+
 
         while (true) {
             // 프로그램 종료 입력은 메뉴 선택 이후에 처리함
@@ -48,6 +49,7 @@ public class App {
                     try {
                         double result= ac.calculate(numOne,numTow,giho);
                         System.out.println("결과"+result);
+                        calc.addResult(result);
                     }catch (ArithmeticException e){
                         System.out.println("오류: "+e.getMessage());
                     }
@@ -62,6 +64,7 @@ public class App {
                     try{
                        double area=cc.ArithmeticCalculator(radius);
                         System.out.println("원의 넓이를 계산했습니다.:"+area);
+                        calc.addResult(area);
                     }catch (ArithmeticException e){
                         System.out.println("오류: "+e.getMessage());
                     }
@@ -92,7 +95,7 @@ public class App {
                 }
             }
             else if(msg.equals("inquiry")){
-                    ac.listCal();
+                calc.listCal();
                 }else if(msg.equals("exit")){
                     System.out.println("프로그램을 종료합니다.");
                     return;
