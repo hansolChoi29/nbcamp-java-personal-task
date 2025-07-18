@@ -12,7 +12,7 @@ public class App {
         Operator opMul=new MultiplyOperator();
         Operator opSub=new SubtractOperator();
         Operator opMod=new ModOperator();
-        Operator[] operators= {opAdd, opSub, opMul, opDivi};
+        Operator[] operators= {opAdd, opSub, opMul, opDivi, opMod};
         CircleCalculator cc=new CircleCalculator();
 //        ArithmeticCalculator ac=new ArithmeticCalculator(operators);
         ArithmeticCalculator<Number> ac=new ArithmeticCalculator<>(operators);
@@ -49,6 +49,7 @@ public class App {
                     try {
                         double result= ac.calculate(numOne,numTow,giho);
                         System.out.println("결과"+result);
+                        calc.addResult(result);
                     }catch (ArithmeticException e){
                         System.out.println("오류: "+e.getMessage());
                     }
@@ -63,6 +64,7 @@ public class App {
                     try{
                        double area=cc.ArithmeticCalculator(radius);
                         System.out.println("원의 넓이를 계산했습니다.:"+area);
+                        calc.addResult(area);
                     }catch (ArithmeticException e){
                         System.out.println("오류: "+e.getMessage());
                     }
@@ -93,7 +95,7 @@ public class App {
                 }
             }
             else if(msg.equals("inquiry")){
-                    ac.listCal();
+                    calc.listCal();
                 }else if(msg.equals("inquiryGreater")){
                     System.out.println("기준값을 입력해 주세요: ");
                     double threshold=sc.nextDouble();
